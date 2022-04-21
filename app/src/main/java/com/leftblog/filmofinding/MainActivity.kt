@@ -15,6 +15,12 @@ import com.leftblog.filmofinding.databinding.ActivityMainBinding
 import android.os.Environment
 import androidx.annotation.RequiresApi
 import java.io.File
+import android.R
+import android.annotation.SuppressLint
+import android.graphics.Color
+import android.os.PersistableBundle
+import android.util.Log
+import androidx.core.content.PackageManagerCompat.LOG_TAG
 
 
 /*
@@ -63,12 +69,12 @@ class MainActivity : AppCompatActivity() {
         b = ActivityMainBinding.inflate(layoutInflater)
         setContentView(b.root)
 
-        populateList()
+       /* populateList()
 
-        setUpAdapter()
+        setUpAdapter()*/
     }
 
-    private fun setUpAdapter() {
+   /* private fun setUpAdapter() {
 
         adapter = MainShowElementsAdapter(this,mainElementsList)
 
@@ -85,9 +91,56 @@ class MainActivity : AppCompatActivity() {
             val foodItem = MainElement(name = filmsName[i],src = filmsSRC[i])
             mainElementsList.add(foodItem)
         }
-    }
+    }*/
     fun onClick(v: View) {
-        val intent = Intent(this, ShowFilmDetails::class.java)
-        startActivity(intent)
+       when (v.id) {
+           b.showFilmDetails.id -> {
+               b.textView.setTextColor(Color.parseColor("#FFBA5F"))
+               val intent = Intent(this, ShowFilmDetails::class.java)
+               intent.putExtra(ShowFilmDetails.IMG_SRC, getResources().getIdentifier("stranger_things","drawable", getPackageName()))
+               intent.putExtra(ShowFilmDetails.DESCRIPTION_TEXT, "Очень странные дела")
+               startActivity(intent)
+           }
+           b.showFilmDetails2.id -> {
+               b.textView2.setTextColor(Color.parseColor("#FFBA5F"))
+               val intent = Intent(this, ShowFilmDetails::class.java)
+               intent.putExtra(ShowFilmDetails.IMG_SRC, getResources().getIdentifier("uncharted_2021","drawable", getPackageName()))
+               intent.putExtra(ShowFilmDetails.DESCRIPTION_TEXT, "Анчартед, на картах не значится")
+               startActivity(intent)
+           }
+           b.showFilmDetails3.id -> {
+               b.textView3.setTextColor(Color.parseColor("#FFBA5F"))
+               val intent = Intent(this, ShowFilmDetails::class.java)
+               intent.putExtra(ShowFilmDetails.IMG_SRC, getResources().getIdentifier("fantasticbeasts3","drawable", getPackageName()))
+               intent.putExtra(ShowFilmDetails.DESCRIPTION_TEXT, "Фантачтические твари. Тайны Дамблдора")
+               startActivity(intent)
+           }
+           b.showFilmDetails4.id -> {
+               b.textView4.setTextColor(Color.parseColor("#FFBA5F"))
+               val intent = Intent(this, ShowFilmDetails::class.java)
+               intent.putExtra(ShowFilmDetails.IMG_SRC, getResources().getIdentifier("batman","drawable", getPackageName()))
+               intent.putExtra(ShowFilmDetails.DESCRIPTION_TEXT, "Бэтмен")
+               startActivity(intent)
+           }
+
+       }
+        /*val intent = Intent(this, ShowFilmDetails::class.java)
+        startActivity(intent)*/
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("KEY1", b.textView.currentTextColor)
+        outState.putInt("KEY2", b.textView2.currentTextColor)
+        outState.putInt("KEY3", b.textView3.currentTextColor)
+        outState.putInt("KEY4", b.textView4.currentTextColor)
+    }
+    @SuppressLint("RestrictedApi")
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        b.textView.setTextColor(savedInstanceState.getInt("KEY1"))
+        b.textView2.setTextColor(savedInstanceState.getInt("KEY2"))
+        b.textView3.setTextColor(savedInstanceState.getInt("KEY3"))
+        b.textView4.setTextColor(savedInstanceState.getInt("KEY4"))
     }
 }

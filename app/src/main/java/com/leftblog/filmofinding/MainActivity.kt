@@ -17,10 +17,14 @@ import androidx.annotation.RequiresApi
 import java.io.File
 import android.R
 import android.annotation.SuppressLint
+import android.app.PendingIntent.getActivity
+import android.content.res.Configuration
 import android.graphics.Color
 import android.os.PersistableBundle
 import android.util.Log
 import androidx.core.content.PackageManagerCompat.LOG_TAG
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 
 /*
@@ -68,31 +72,70 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         b = ActivityMainBinding.inflate(layoutInflater)
         setContentView(b.root)
+        if (this.getResources().getConfiguration().orientation === Configuration.ORIENTATION_LANDSCAPE
+        ) {
+            b.mainFilmsGrid.layoutManager = GridLayoutManager(this, 2)
+        } else {
+            b.mainFilmsGrid.layoutManager = LinearLayoutManager(this)
+        }
 
-       /* populateList()
-
-        setUpAdapter()*/
+        populateList()
+        setUpAdapter()
     }
 
-   /* private fun setUpAdapter() {
-
+    private fun setUpAdapter() {
         adapter = MainShowElementsAdapter(this,mainElementsList)
-
         b.mainFilmsGrid.adapter = adapter
-        b.mainFilmsGrid.layoutManager = LinearLayoutManager(this)
+        //b.mainFilmsGrid.layoutManager = LinearLayoutManager(this)
     }
 
     private fun populateList() {
         //val links = arrayOf(Film("Анчартед","@drawable/uncharted_2021"))
         val filmsName = arrayOf("Анчартед", "Фантастические Твари", "Бэтмен", "Очень странные дела")
-        val filmsSRC = arrayOf(R.drawable.uncharted_2021, R.drawable.fantasticbeasts3, R.drawable.batman, R.drawable.stranger_things)
+        val filmsSRC = arrayOf(resources.getIdentifier("uncharted_2021","drawable", packageName), resources.getIdentifier("fantasticbeasts3","drawable",packageName
+        ), resources.getIdentifier("batman","drawable", packageName), resources.getIdentifier("stranger_things","drawable", packageName))
         //val link:Int = R.drawable.uncharted_2021
         for (i in 0..3){
-            val foodItem = MainElement(name = filmsName[i],src = filmsSRC[i])
+            val foodItem = MainElement(name = filmsName[i],src = filmsSRC[i], description = filmsName[i])
             mainElementsList.add(foodItem)
         }
-    }*/
+    }
     fun onClick(v: View) {
+        /*val intent = Intent(this, ShowFilmDetails::class.java)
+        startActivity(intent)*/
+       /* when (v.id) {
+            b.showFilmDetails.id -> {
+                b.textView.setTextColor(Color.parseColor("#FFBA5F"))
+                val intent = Intent(this, ShowFilmDetails::class.java)
+                intent.putExtra(ShowFilmDetails.IMG_SRC, getResources().getIdentifier("stranger_things","drawable", getPackageName()))
+                intent.putExtra(ShowFilmDetails.DESCRIPTION_TEXT, "Очень странные дела")
+                startActivity(intent)
+            }
+            b.showFilmDetails2.id -> {
+                b.textView2.setTextColor(Color.parseColor("#FFBA5F"))
+                val intent = Intent(this, ShowFilmDetails::class.java)
+                intent.putExtra(ShowFilmDetails.IMG_SRC, getResources().getIdentifier("uncharted_2021","drawable", getPackageName()))
+                intent.putExtra(ShowFilmDetails.DESCRIPTION_TEXT, "Анчартед, на картах не значится")
+                startActivity(intent)
+            }
+            b.showFilmDetails3.id -> {
+                b.textView3.setTextColor(Color.parseColor("#FFBA5F"))
+                val intent = Intent(this, ShowFilmDetails::class.java)
+                intent.putExtra(ShowFilmDetails.IMG_SRC, getResources().getIdentifier("fantasticbeasts3","drawable", getPackageName()))
+                intent.putExtra(ShowFilmDetails.DESCRIPTION_TEXT, "Фантачтические твари. Тайны Дамблдора")
+                startActivity(intent)
+            }
+            b.showFilmDetails4.id -> {
+                b.textView4.setTextColor(Color.parseColor("#FFBA5F"))
+                val intent = Intent(this, ShowFilmDetails::class.java)
+                intent.putExtra(ShowFilmDetails.IMG_SRC, getResources().getIdentifier("batman","drawable", getPackageName()))
+                intent.putExtra(ShowFilmDetails.DESCRIPTION_TEXT, "Бэтмен")
+                startActivity(intent)
+            }
+
+        }*/
+    }
+    /*fun onClick(v: View) {
        when (v.id) {
            b.showFilmDetails.id -> {
                b.textView.setTextColor(Color.parseColor("#FFBA5F"))
@@ -124,8 +167,6 @@ class MainActivity : AppCompatActivity() {
            }
 
        }
-        /*val intent = Intent(this, ShowFilmDetails::class.java)
-        startActivity(intent)*/
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -142,5 +183,5 @@ class MainActivity : AppCompatActivity() {
         b.textView2.setTextColor(savedInstanceState.getInt("KEY2"))
         b.textView3.setTextColor(savedInstanceState.getInt("KEY3"))
         b.textView4.setTextColor(savedInstanceState.getInt("KEY4"))
-    }
+    }*/
 }

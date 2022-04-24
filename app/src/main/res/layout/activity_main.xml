@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     tools:context=".MainActivity"
     android:background="@color/cardview_dark_background"
     >
@@ -33,19 +32,20 @@
 <!--        </GridView>-->
 <!--    </ScrollView>-->
 
-<!--    <androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainFilmsGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layoutManager="LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>-->
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 
 
-    <ScrollView
+    <!--<ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="1dp"
@@ -158,6 +158,6 @@
         </LinearLayout>
 
 
-    </ScrollView>
+    </ScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

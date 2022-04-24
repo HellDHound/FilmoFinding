@@ -29,14 +29,14 @@ class ShowFilmDetails : AppCompatActivity() {
        // var variableValueInt: Int = intent.getIntExtra(TEST, -1)
        // val Hello: String = intent.getStringExtra("hello").toString();
         //val variableValue: Int = intent.getIntExtra(IMG_SRC,-1)
-        Log.d("KEY!", intent.getIntExtra(IMG_SRC, -1).toString())
+        //Log.d("KEY!", intent.getIntExtra(IMG_SRC, -1).toString())
         //binding.imageView.setImageResource(resources.getIdentifier(variableValue, "drawable", packageName))
         //binding.imageView.setImageResource(R.drawable.stranger_things)
         //binding.textView5.text = intent.getStringExtra(DESCRIPTION_TEXT)
         var text: TextView = findViewById(R.id.textView5)
         var image: ImageView = findViewById(R.id.imageView)
-        text.text = intent.getStringExtra(DESCRIPTION_TEXT)
-        image.setImageResource(intent.getIntExtra(IMG_SRC, -1))
+        text.text = intent.getStringExtra("image_description")
+        image.setImageResource(intent.getIntExtra("image_url", -1))
         findViewById<Button>(R.id.buttonFriend).setOnClickListener {
             Log.d("Test!", "!!!!!")
             val sendIntent = Intent()

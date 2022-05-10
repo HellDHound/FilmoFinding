@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: MainShowElementsAdapter
     private lateinit var b: ActivityMainBinding
     private val mainElementsList: MutableList<MainElement> = mutableListOf()
+    private val favoritesList: MutableList<MainElement> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,17 +85,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpAdapter() {
-        adapter = MainShowElementsAdapter(this,mainElementsList)
+        adapter = MainShowElementsAdapter(this,mainElementsList,favoritesList)
         b.mainFilmsGrid.adapter = adapter
         //b.mainFilmsGrid.layoutManager = LinearLayoutManager(this)
     }
 
     private fun populateList() {
-        //val links = arrayOf(Film("Анчартед","@drawable/uncharted_2021"))
         val filmsName = arrayOf("Анчартед", "Фантастические Твари", "Бэтмен", "Очень странные дела")
         val filmsSRC = arrayOf(resources.getIdentifier("uncharted_2021","drawable", packageName), resources.getIdentifier("fantasticbeasts3","drawable",packageName
         ), resources.getIdentifier("batman","drawable", packageName), resources.getIdentifier("stranger_things","drawable", packageName))
-        //val link:Int = R.drawable.uncharted_2021
         for (i in 0..3){
             val foodItem = MainElement(name = filmsName[i],src = filmsSRC[i], description = filmsName[i])
             mainElementsList.add(foodItem)

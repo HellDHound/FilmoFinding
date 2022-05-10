@@ -7,31 +7,6 @@
     tools:context=".MainActivity"
     android:background="@color/cardview_dark_background"
     >
-
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-<!--        <GridView-->
-<!--            android:id="@+id/main_grid_view"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:numColumns="4"-->
-<!--            android:verticalSpacing="16dp"-->
-<!--            android:horizontalSpacing="16dp"-->
-<!--            android:stretchMode="columnWidth"-->
-
-<!--            app:layout_constraintLeft_toLeftOf="parent"-->
-<!--            app:layout_constraintRight_toRightOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            >-->
-<!--            <ImageView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:src="@drawable/ic_launcher_foreground"/>-->
-<!--        </GridView>-->
-<!--    </ScrollView>-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainFilmsGrid"
         android:layout_width="match_parent"
@@ -41,123 +16,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
-
-
-
-    <!--<ScrollView
+    <FrameLayout
+        android:id="@+id/film_details_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="303dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageView
-                android:id="@+id/filmMainImage"
-                style="@style/MyImageView"
-                android:src="@drawable/stranger_things"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.848"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView"
-                style="@style/MyTextView"
-                android:text="Очень странные дела"
-                app:layout_constraintEnd_toEndOf="@+id/filmMainImage"
-                app:layout_constraintStart_toStartOf="@+id/filmMainImage"
-                app:layout_constraintTop_toBottomOf="@+id/filmMainImage" />
-
-            <Button
-                android:id="@+id/showFilmDetails"
-                style="@style/MyButton"
-                app:layout_constraintEnd_toEndOf="@+id/filmMainImage"
-                app:layout_constraintHorizontal_bias="0.525"
-                app:layout_constraintStart_toEndOf="@+id/filmMainImage2"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-            <ImageView
-                android:id="@+id/filmMainImage2"
-                style="@style/MyImageView"
-                android:src="@drawable/uncharted_2021"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.129"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-            <TextView
-                android:id="@+id/textView2"
-                android:text="Анчартед"
-                style="@style/MyTextView"
-                app:layout_constraintEnd_toEndOf="@+id/filmMainImage2"
-                app:layout_constraintStart_toStartOf="@+id/filmMainImage2"
-                app:layout_constraintTop_toBottomOf="@+id/filmMainImage2" />
-
-            <Button
-                android:id="@+id/showFilmDetails2"
-                style="@style/MyButton"
-                app:layout_constraintEnd_toEndOf="@+id/filmMainImage2"
-                app:layout_constraintHorizontal_bias="0.526"
-                app:layout_constraintStart_toStartOf="@+id/filmMainImage2"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-            <ImageView
-                android:id="@+id/filmMainImage3"
-                style="@style/MyImageView"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.849"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/showFilmDetails"
-                app:layout_constraintVertical_bias="0.416"
-                android:src="@drawable/fantasticbeasts3" />
-            <TextView
-                android:id="@+id/textView3"
-                android:text="Фантастические твари"
-                style="@style/MyTextView"
-                app:layout_constraintEnd_toEndOf="@+id/filmMainImage3"
-                app:layout_constraintStart_toStartOf="@+id/filmMainImage3"
-                app:layout_constraintTop_toBottomOf="@+id/filmMainImage3" />
-
-            <Button
-                android:id="@+id/showFilmDetails3"
-                style="@style/MyButton"
-                app:layout_constraintEnd_toEndOf="@+id/filmMainImage3"
-                app:layout_constraintHorizontal_bias="0.513"
-                app:layout_constraintStart_toStartOf="@+id/filmMainImage3"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-            <ImageView
-                android:id="@+id/filmMainImage4"
-                style="@style/MyImageView"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.129"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/showFilmDetails2"
-                app:layout_constraintVertical_bias="0.416"
-                android:src="@drawable/batman" />
-            <TextView
-                android:id="@+id/textView4"
-                android:text="Бэтмен"
-                style="@style/MyTextView"
-                app:layout_constraintEnd_toEndOf="@+id/filmMainImage4"
-                app:layout_constraintStart_toStartOf="@+id/filmMainImage4"
-                app:layout_constraintTop_toBottomOf="@+id/filmMainImage4" />
-
-            <Button
-                android:id="@+id/showFilmDetails4"
-                style="@style/MyButton"
-                app:layout_constraintEnd_toEndOf="@+id/filmMainImage4"
-                app:layout_constraintHorizontal_bias="0.526"
-                app:layout_constraintStart_toStartOf="@+id/filmMainImage4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-        </LinearLayout>
-
-
-    </ScrollView>-->
-
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

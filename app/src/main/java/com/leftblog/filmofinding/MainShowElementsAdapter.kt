@@ -3,6 +3,7 @@ package com.leftblog.filmofinding
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ class MainShowElementsAdapter(private val context: Context, private val mainElem
     //var favorites: MutableList<Int> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainElementViewHolder {
+        Log.d("contextCreateViewHolder", context.toString())
         val binding = MainFilmElementBinding.inflate(LayoutInflater.from(context), parent, false)
         //val v: View = ViewGroup
         //val h: RecyclerView.ViewHolder = object : RecyclerView.ViewHolder(bin) {}
@@ -26,7 +28,7 @@ class MainShowElementsAdapter(private val context: Context, private val mainElem
     override fun onBindViewHolder(holder: MainElementViewHolder, position: Int) {
         //val binding = MainFilmElementBinding.inflate(LayoutInflater.from(context), parent, false)
         val MainElement = mainElementList[position]
-
+        Log.d("MainElement", MainElement.toString())
         holder.bind(MainElement,favoritesList)
     }
 
@@ -45,8 +47,10 @@ class MainShowElementsAdapter(private val context: Context, private val mainElem
             binding.filmMainImage.setImageResource(mainElement.src)
 
             binding.showFilmDetails.setOnClickListener {
-                val activity = itemView.getContext()
+                //val activity = itemView.getContext()
                 filmDetailsFragment = FilmDetailsFragment()
+                binding.filmName.setTextColor(Color.parseColor("#FFBA5F"))
+
 
 
                 //mainElement.
@@ -56,11 +60,12 @@ class MainShowElementsAdapter(private val context: Context, private val mainElem
                 //    .commit()
 
 
-                 var context = itemView.getContext();
-                 val intent = Intent (context, ShowFilmDetails::class.java)
-                 intent.putExtra("image_url", mainElement.src);
-                 intent.putExtra("image_name", mainElement.name);
-                 intent.putExtra("image_description", mainElement.description);
+                 var context = itemView.getContext()
+                Log.d("contextAdapter", context.toString())
+                val intent = Intent (context, ShowFilmDetails::class.java)
+                 intent.putExtra("image_url", mainElement.src)
+                 intent.putExtra("image_name", mainElement.name)
+                 intent.putExtra("image_description", mainElement.description)
                  context.startActivity(intent)
 
             }
@@ -72,19 +77,6 @@ class MainShowElementsAdapter(private val context: Context, private val mainElem
                 favoritesList.add(filmItem)
                 Log.d("FAV", favoritesList.toString())
                 var context = itemView.getContext();
-                /*val settings = context.getSharedPreferences("LocalStorage", Context.MODE_PRIVATE)
-                val editor = settings.edit()
-                Log.d("FAV1", editor.getInt("LocalStorage", "favorites").toString())*/
-
-               // editor.putInt("favorites", mainElement.src)
-                //editor.apply()
-               // Log.d("FAV", editor.getInt("LocalStorage", "favorites").toString())
-                //nicknameText.setText(mSettings.getInt("LocalStorage", ""));
-                /*intent.putExtra("image_url", mainElement.src);
-                intent.putExtra("image_name", mainElement.name);
-                intent.putExtra("image_description", mainElement.description);
-                context.startActivity(intent)*/
-                //Toast.makeText(this, "Long click detected", Toast.LENGTH_SHORT).show()
 
                 this?.let {
                     val builder = AlertDialog.Builder(context)

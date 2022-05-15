@@ -6,9 +6,11 @@
         <entry key="..\:/Users/grice/Desktop/android/FilmoFinding/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
         <entry key="..\:/Users/grice/Desktop/android/FilmoFinding/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
         <entry key="..\:/Users/grice/Desktop/android/FilmoFinding/app/src/main/res/layout-v31/activity_main.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/grice/Desktop/android/FilmoFinding/app/src/main/res/layout/MainRecyclerFragment.xml" value="0.2875" />
         <entry key="..\:/Users/grice/Desktop/android/FilmoFinding/app/src/main/res/layout/activity_main.xml" value="0.3146067415730337" />
         <entry key="..\:/Users/grice/Desktop/android/FilmoFinding/app/src/main/res/layout/activity_show_film_details.xml" value="0.18258426966292135" />
         <entry key="..\:/Users/grice/Desktop/android/FilmoFinding/app/src/main/res/layout/main_film_element.xml" value="0.25625" />
+        <entry key="..\:/Users/grice/Desktop/android/FilmoFinding/app/src/main/res/layout/main_recycler_fragment.xml" value="0.21666666666666667" />
       </map>
     </option>
   </component>

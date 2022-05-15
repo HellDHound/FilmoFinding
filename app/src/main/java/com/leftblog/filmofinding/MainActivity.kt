@@ -68,12 +68,21 @@ class MainActivity : AppCompatActivity() {
     private lateinit var b: ActivityMainBinding
     private val mainElementsList: MutableList<MainElement> = mutableListOf()
     private val favoritesList: MutableList<MainElement> = mutableListOf()
+    private lateinit var mainRecyclerFragment: MainRecyclerFragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityMainBinding.inflate(layoutInflater)
+        //b.filmMainContainer
         setContentView(b.root)
-        if (this.getResources().getConfiguration().orientation === Configuration.ORIENTATION_LANDSCAPE
+        //b.root.
+        mainRecyclerFragment = MainRecyclerFragment()
+        Log.d("Test", b.filmMainContainer.id.toString())
+        supportFragmentManager.beginTransaction()
+            .replace(b.filmMainContainer.id, mainRecyclerFragment, "mainRecycler")
+            .commit()
+       /* if (this.getResources().getConfiguration().orientation === Configuration.ORIENTATION_LANDSCAPE
         ) {
             b.mainFilmsGrid.layoutManager = GridLayoutManager(this, 2)
         } else {
@@ -81,10 +90,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         populateList()
-        setUpAdapter()
+        setUpAdapter()*/
     }
 
-    private fun setUpAdapter() {
+   /* private fun setUpAdapter() {
         adapter = MainShowElementsAdapter(this,mainElementsList,favoritesList)
         b.mainFilmsGrid.adapter = adapter
         //b.mainFilmsGrid.layoutManager = LinearLayoutManager(this)
@@ -98,7 +107,7 @@ class MainActivity : AppCompatActivity() {
             val foodItem = MainElement(name = filmsName[i],src = filmsSRC[i], description = filmsName[i])
             mainElementsList.add(foodItem)
         }
-    }
+    }*/
     fun onClick(v: View) {
         /*val intent = Intent(this, ShowFilmDetails::class.java)
         startActivity(intent)*/

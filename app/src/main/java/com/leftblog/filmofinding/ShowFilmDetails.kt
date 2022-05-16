@@ -38,7 +38,6 @@ class ShowFilmDetails : AppCompatActivity() {
         text.text = intent.getStringExtra("image_description")
         image.setImageResource(intent.getIntExtra("image_url", -1))
         findViewById<Button>(R.id.buttonFriend).setOnClickListener {
-            Log.d("Test!", "!!!!!")
             val sendIntent = Intent()
             sendIntent.action = Intent.ACTION_SEND
             sendIntent.putExtra(Intent.EXTRA_TEXT, "Hi bro, follow me")

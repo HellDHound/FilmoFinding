@@ -67,12 +67,22 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: MainShowElementsAdapter
     private lateinit var b: ActivityMainBinding
     private val mainElementsList: MutableList<MainElement> = mutableListOf()
+    private val favoritesList: MutableList<MainElement> = mutableListOf()
+    private lateinit var mainRecyclerFragment: MainRecyclerFragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityMainBinding.inflate(layoutInflater)
+        //b.filmMainContainer
         setContentView(b.root)
-        if (this.getResources().getConfiguration().orientation === Configuration.ORIENTATION_LANDSCAPE
+        //b.root.
+        mainRecyclerFragment = MainRecyclerFragment()
+        Log.d("Test", b.filmMainContainer.id.toString())
+        supportFragmentManager.beginTransaction()
+            .replace(b.filmMainContainer.id, mainRecyclerFragment, "mainRecycler")
+            .commit()
+       /* if (this.getResources().getConfiguration().orientation === Configuration.ORIENTATION_LANDSCAPE
         ) {
             b.mainFilmsGrid.layoutManager = GridLayoutManager(this, 2)
         } else {
@@ -80,26 +90,24 @@ class MainActivity : AppCompatActivity() {
         }
 
         populateList()
-        setUpAdapter()
+        setUpAdapter()*/
     }
 
-    private fun setUpAdapter() {
-        adapter = MainShowElementsAdapter(this,mainElementsList)
+   /* private fun setUpAdapter() {
+        adapter = MainShowElementsAdapter(this,mainElementsList,favoritesList)
         b.mainFilmsGrid.adapter = adapter
         //b.mainFilmsGrid.layoutManager = LinearLayoutManager(this)
     }
 
     private fun populateList() {
-        //val links = arrayOf(Film("Анчартед","@drawable/uncharted_2021"))
         val filmsName = arrayOf("Анчартед", "Фантастические Твари", "Бэтмен", "Очень странные дела")
         val filmsSRC = arrayOf(resources.getIdentifier("uncharted_2021","drawable", packageName), resources.getIdentifier("fantasticbeasts3","drawable",packageName
         ), resources.getIdentifier("batman","drawable", packageName), resources.getIdentifier("stranger_things","drawable", packageName))
-        //val link:Int = R.drawable.uncharted_2021
         for (i in 0..3){
             val foodItem = MainElement(name = filmsName[i],src = filmsSRC[i], description = filmsName[i])
             mainElementsList.add(foodItem)
         }
-    }
+    }*/
     fun onClick(v: View) {
         /*val intent = Intent(this, ShowFilmDetails::class.java)
         startActivity(intent)*/

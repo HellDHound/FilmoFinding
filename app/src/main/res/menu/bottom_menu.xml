@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_main_page"
+        android:title="ГЛАВНОЕ МЕНЮ"
+        android:icon="@mipmap/main_home_icon_foreground"
+        />
+    <item android:id="@+id/action_favorites"
+        android:title="ИЗБРАННОЕ"
+        android:icon="@android:drawable/btn_star"
+        />
+</menu>
